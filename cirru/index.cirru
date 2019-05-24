@@ -96,3 +96,6 @@ html
       .case (.name "Protocol") $ .pair
         .card (.lang Kotlin) $ pre.code $ code (@insert ../code/protocol.kt)
         .card (.lang TypeScript) $ pre.code $ code (@insert ../code/protocol.ts)
+      .case (.name "ADT (discriminated union)") $ .pair
+        .card (.lang Kotlin) $ pre.code $ code (@insert ../code/adt-sealed-du.kt)
+        .card (.lang TypeScript) $ pre.code $ code (@insert ../code/adt-sealed-du.ts)
