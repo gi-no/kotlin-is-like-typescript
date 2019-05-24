@@ -268,7 +268,7 @@ fun f&lt;T: Nameable>(x: T) {
     name():string;
 };
 
-function f(x: Nameable) {
+function f&lt;T extends Nameable>(x: T) {
     console.log("Name is " + x.name());
 }
 </code></pre></div></div></div></div></body></html>
