@@ -2,6 +2,6 @@ interface Nameable {
     name():string;
 };
 
-function f(x: Nameable) {
+function f<T extends Nameable>(x: T) {
     console.log("Name is " + x.name());
 }
