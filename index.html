@@ -271,4 +271,36 @@ fun f&lt;T: Nameable>(x: T) {
 function f(x: Nameable) {
     console.log("Name is " + x.name());
 }
+</code></pre></div></div></div><div class="case"><div class="name">ADT (discriminated union)</div><div class="pair"><div class="card"><div class="lang">Kotlin</div><pre class="code"><code>sealed class Operation {
+    class Add(val value: Int) : Operation()
+    class Substract(val value: Int) : Operation()
+    class Multiply(val value: Int) : Operation()
+    class Divide(val value: Int) : Operation()
+}
+
+fun execute(x: Int, op: Operation) = when (op) {
+    is Operation.Add -> x + op.value
+    is Operation.Substract -> x - op.value
+    is Operation.Multiply -> x * op.value
+    is Operation.Divide -> x / op.value
+}
+</code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>class Add { constructor(public value: number) { } }
+class Substract { constructor(public value: number) { } }
+class Multiply { constructor(public value: number) { } }
+class Divide { constructor(public value: number) { } }
+
+type Operation =
+|   Add
+|   Substract
+|   Multiply
+|   Divide
+
+function execute(x: number, op: Operation) {
+    if (op instanceof Add) return x + op.value;
+    if (op instanceof Substract) return x - op.value;
+    if (op instanceof Multiply) return x * op.value;
+    if (op instanceof Divide) return x / op.value;
+
+    return 0; // needs this for stricted inferenced number type
+}
 </code></pre></div></div></div></div></body></html>
