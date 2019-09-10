@@ -253,6 +253,7 @@ for (let item in library) {
 }
 </code></pre></div><div class="card"><div class="lang">TypeScript</div><pre class="code"><code>for (let current in someObjects) {
     if (current instanceof Movie) {
+        let movie = current as Movie;
         console.log(`Movie: '${movie.name}', ` +
             `dir. ${movie.director}`);
     }
